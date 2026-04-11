@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Print Manager Queue</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #eef2f7;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #2c3e50;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        width: 360px;
+        margin: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    input {
+        width: 92%;
+        padding: 8px;
+        margin: 8px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+
+    button {
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #4a90e2;
+        color: white;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #357abd;
+    }
+
+    .output {
+        margin-top: 20px;
+        text-align: left;
+        background: #f1f5f9;
+        padding: 12px;
+        border-radius: 8px;
+        min-height: 100px;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>🖨️ Print Job Manager (Queue)</h2>
+
+<div class="container">
+
+    <input type="number" id="id" placeholder="Enter Job ID">
+    <input type="text" id="name" placeholder="Enter Document Name">
+    <input type="number" id="pages" placeholder="Total Pages">
+
+    <br>
+
+    <button onclick="addJob()">Add Job</button>
+    <button onclick="processJob()">Process</button>
+    <button onclick="peekJob()">Next Job</button>
+    <button onclick="displayQueue()">Show Queue</button>
+
+    <div class="output" id="output">No jobs yet...</div>
+
+</div>
+
+<script>
+    let queue = [];
+
+    function addJob() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let pages = document.getElementById("pages").value;
+
+        if (!id || !name || !pages) {
+            alert("⚠ Please fill all fields");
+            return;
+        }
+
+        let job = { id, name, pages };
+        queue.push(job);
+
+        displayQueue(); // ✅ auto update
+
+        clearInputs();
+    }
+
+    function processJob() {
+        if (queue.length === 0) {
+            document.getElementById("output").innerHTML =
+                "<p>❌ No jobs to process</p>";
+            return;
+        }
+
+        let job = queue.shift();
+
+        document.getElementById("output").innerHTML =
+            `<p>🖨️ Processing Job: <b>${job.name}</b> (${job.pages} pages)</p>`;
+
+        displayQueue(); // ✅ refresh queue
+    }
+
+    function peekJob() {
+        if (queue.length === 0) {
+            document.getElementById("output").innerHTML =
+                "<p>❌ Queue is empty</p>";
+            return;
+        }
+
+        let job = queue[0];
+
+        document.getElementById("output").innerHTML =
+            `<p>🔎 Next Job: <b>${job.name}</b> (${job.pages} pages)</p>`;
+    }
+
+    function displayQueue() {
+        if (queue.length === 0) {
+            document.getElementById("output").innerHTML =
+                "<p>📭 Queue is empty</p>";
+            return;
+        }
+
+        let output = "<h3>📋 Current Queue:</h3>";
+
+        queue.forEach((job, i) => {
+            output += `<p>${i + 1}. ${job.name} (${job.pages} pages)</p>`;
+        });
+
+        document.getElementById("output").innerHTML = output;
+    }
+
+    function clearInputs() {
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("pages").value = "";
+    }
+</script>
+
+</body>
+</html>
