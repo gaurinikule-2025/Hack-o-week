@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Campus Event Registration</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CARD */
+.form-box {
+    width: 520px;
+    background: rgba(255,255,255,0.96);
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+    animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* SECTION */
+.section-title {
+    margin: 25px 0 15px;
+    font-weight: 600;
+    color: #444;
+    border-left: 4px solid #2193b0;
+    padding-left: 10px;
+}
+
+/* INPUT FIELD */
+.input-box {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background: transparent;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    font-size: 13px;
+    color: #777;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.3s;
+    background: white;
+    padding: 0 6px;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label,
+.input-box textarea:focus + label,
+.input-box textarea:not(:placeholder-shown) + label,
+.input-box select:focus + label {
+    top: -8px;
+    font-size: 11px;
+    color: #2193b0;
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus {
+    outline: none;
+    border-color: #2193b0;
+    box-shadow: 0 0 10px rgba(33,147,176,0.3);
+}
+
+/* RADIO */
+.radio-group {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* CHECKBOX */
+.checkbox {
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* SUCCESS */
+.success {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.success span {
+    font-size: 50px;
+    color: #28a745;
+}
+
+/* RESPONSIVE */
+@media(max-width: 560px) {
+    .form-box {
+        width: 92%;
+        padding: 25px;
+    }
+}
+</style>
+
+<script>
+function submitForm() {
+    document.getElementById("success").style.display = "block";
+    return false;
+}
+</script>
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>Event Registration</h2>
+    <div class="subtitle">Campus Activity Portal</div>
+
+    <form onsubmit="return submitForm()">
+
+        <!-- PERSONAL DETAILS -->
+        <div class="section-title">Personal Information</div>
+
+        <div class="input-box">
+            <input type="text" required placeholder=" ">
+            <label>Full Name</label>
+        </div>
+
+        <div class="input-box">
+            <input type="email" required placeholder=" ">
+            <label>Email Address</label>
+        </div>
+
+        <div class="input-box">
+            <input type="tel" pattern="[0-9]{10}" required placeholder=" ">
+            <label>Phone Number</label>
+        </div>
+
+        <div class="radio-group">
+            Gender:
+            <label><input type="radio" name="gender" required> Male</label>
+            <label><input type="radio" name="gender"> Female</label>
+            <label><input type="radio" name="gender"> Other</label>
+        </div>
+
+        <!-- ACADEMIC DETAILS -->
+        <div class="section-title">Academic Information</div>
+
+        <div class="input-box">
+            <input type="text" required placeholder=" ">
+            <label>Roll Number</label>
+        </div>
+
+        <div class="input-box">
+            <select required>
+                <option value=""></option>
+                <option>CSE</option>
+                <option>IT</option>
+                <option>ECE</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+            </select>
+            <label>Department</label>
+        </div>
+
+        <!-- EVENT DETAILS -->
+        <div class="section-title">Event Selection</div>
+
+        <div class="input-box">
+            <select required>
+                <option value=""></option>
+                <option>Dance</option>
+                <option>Drama</option>
+                <option>Music</option>
+                <option>Quiz</option>
+                <option>Sports</option>
+            </select>
+            <label>Choose Event</label>
+        </div>
+
+        <div class="input-box">
+            <textarea rows="3" placeholder=" "></textarea>
+            <label>Additional Notes</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" required> I confirm the details are correct
+        </div>
+
+        <button type="submit">Register Now</button>
+    </form>
+
+    <div class="success" id="success">
+        <span>✔</span>
+        <h3>Registration Submitted</h3>
+        <p>Thank you! Your entry has been recorded.</p>
+    </div>
+</div>
+
+</body>
+</html>
