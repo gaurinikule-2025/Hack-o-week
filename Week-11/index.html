@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BookVault Manager</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    text-align:center;
+    margin:0;
+}
+
+.container{
+    width:60%;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#444;
+}
+
+input{
+    padding:10px;
+    margin:8px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    width:200px;
+}
+
+button{
+    padding:10px 15px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    background:#6c63ff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4b44d4;
+}
+
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+th{
+    background:#6c63ff;
+    color:white;
+}
+
+.result{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 BookVault Manager</h1>
+
+<input type="text" id="title" placeholder="Book Title">
+<input type="text" id="author" placeholder="Author Name">
+<br>
+
+<button onclick="addBook()">Add</button>
+<button onclick="searchBook()">Search</button>
+<button onclick="removeBook()">Remove</button>
+<button onclick="displayBooks()">Show All</button>
+<button onclick="clearInputs()">Clear</button>
+
+<div class="result" id="result"></div>
+
+<table id="bookTable">
+<tr>
+<th>Title</th>
+<th>Author</th>
+</tr>
+</table>
+
+</div>
+
+<script>
+
+let library = [];
+
+/* ADD BOOK */
+function addBook(){
+
+let title = document.getElementById("title").value.trim();
+let author = document.getElementById("author").value.trim();
+
+if(!title || !author){
+alert("Enter both title and author");
+return;
+}
+
+library.push({title,author});
+
+document.getElementById("result").innerText="✅ Book added successfully!";
+clearInputs();
+displayBooks();
+}
+
+/* SEARCH */
+function searchBook(){
+
+let title = document.getElementById("title").value.trim();
+
+let found = library.find(b => b.title.toLowerCase() === title.toLowerCase());
+
+if(found){
+document.getElementById("result").innerText=
+"🔍 Found: "+found.title+" by "+found.author;
+}else{
+document.getElementById("result").innerText="❌ Book not found";
+}
+}
+
+/* REMOVE */
+function removeBook(){
+
+let title = document.getElementById("title").value.trim();
+
+let index = library.findIndex(b => b.title.toLowerCase() === title.toLowerCase());
+
+if(index !== -1){
+library.splice(index,1);
+document.getElementById("result").innerText="🗑️ Book removed!";
+displayBooks();
+}else{
+document.getElementById("result").innerText="❌ Book not found";
+}
+}
+
+/* DISPLAY */
+function displayBooks(){
+
+let table = document.getElementById("bookTable");
+
+table.innerHTML = `
+<tr>
+<th>Title</th>
+<th>Author</th>
+</tr>
+`;
+
+library.forEach(book=>{
+let row = table.insertRow();
+row.insertCell(0).innerText = book.title;
+row.insertCell(1).innerText = book.author;
+});
+
+}
+
+/* CLEAR */
+function clearInputs(){
+document.getElementById("title").value="";
+document.getElementById("author").value="";
+}
+
+</script>
+
+</body>
+</html>
