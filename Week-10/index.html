@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevLaunch Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f4f6ff;
+color:#333;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+transition:0.3s;
+}
+
+nav.scrolled{
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+nav h2{
+color:#5a4bff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+nav a:hover{
+color:#5a4bff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+background:linear-gradient(135deg,#5a4bff,#8b5cf6);
+color:white;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:30px;
+}
+
+.btn{
+padding:12px 28px;
+border:none;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+.btn-primary{
+background:white;
+color:#5a4bff;
+}
+
+.btn-primary:hover{
+transform:scale(1.05);
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+.btn-outline:hover{
+background:white;
+color:#5a4bff;
+}
+
+/* SECTION */
+
+section{
+padding:80px 10%;
+text-align:center;
+}
+
+section h2{
+margin-bottom:40px;
+font-size:32px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* ICON */
+
+.icon{
+font-size:35px;
+color:#5a4bff;
+margin-bottom:15px;
+}
+
+/* INSTRUCTOR */
+
+.instructor{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:30px;
+justify-content:center;
+}
+
+.instructor img{
+width:200px;
+border-radius:50%;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* TESTIMONIAL */
+
+.testimonial{
+font-style:italic;
+background:#eef2ff;
+}
+
+/* PRICE */
+
+.price{
+font-size:40px;
+color:#5a4bff;
+margin:20px 0;
+}
+
+/* FAQ */
+
+.faq-item{
+background:white;
+margin-bottom:10px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.faq-question{
+padding:15px;
+cursor:pointer;
+font-weight:600;
+background:#e0e7ff;
+}
+
+.faq-answer{
+padding:15px;
+max-height:0;
+overflow:hidden;
+transition:0.3s ease;
+}
+
+/* FOOTER */
+
+footer{
+background:#111827;
+color:white;
+padding:40px 10%;
+text-align:center;
+}
+
+.social i{
+margin:10px;
+font-size:20px;
+cursor:pointer;
+}
+
+.social i:hover{
+color:#8b5cf6;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+.hero h1{
+font-size:30px;
+}
+nav ul{
+display:none;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav id="navbar">
+<h2>DevLaunch</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#curriculum">Curriculum</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Launch Your Web Dev Career in 8 Weeks 🚀</h1>
+<p>Master modern web development with real-world projects and expert mentorship.</p>
+<button class="btn btn-primary">Join Now</button>
+<button class="btn btn-outline">Explore Course</button>
+</div>
+</section>
+
+<section id="about">
+<h2>About the Program</h2>
+<p>DevLaunch Academy helps beginners become job-ready developers through practical learning.</p>
+
+<br>
+
+<div class="grid">
+<div class="card">HTML5</div>
+<div class="card">CSS3</div>
+<div class="card">JavaScript</div>
+<div class="card">React</div>
+<div class="card">Node.js</div>
+</div>
+</section>
+
+<section id="curriculum">
+<h2>Curriculum</h2>
+
+<div class="grid">
+<div class="card"><h3>Basics</h3><p>HTML & CSS</p></div>
+<div class="card"><h3>JavaScript</h3><p>Core Logic</p></div>
+<div class="card"><h3>Frontend</h3><p>React Apps</p></div>
+<div class="card"><h3>Backend</h3><p>Node & APIs</p></div>
+<div class="card"><h3>Project</h3><p>Final Build</p></div>
+</div>
+</section>
+
+<section id="features">
+<h2>Features</h2>
+
+<div class="grid">
+<div class="card"><i class="fa-solid fa-video icon"></i><h3>Live Classes</h3></div>
+<div class="card"><i class="fa-solid fa-laptop-code icon"></i><h3>Projects</h3></div>
+<div class="card"><i class="fa-solid fa-certificate icon"></i><h3>Certificate</h3></div>
+<div class="card"><i class="fa-solid fa-briefcase icon"></i><h3>Career Help</h3></div>
+</div>
+</section>
+
+<section>
+<h2>Instructor</h2>
+<div class="instructor">
+<img src="https://randomuser.me/api/portraits/men/45.jpg">
+<div>
+<h3>Aman Verma</h3>
+<p>Senior Full-Stack Developer with industry experience mentoring 3000+ students.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Testimonials</h2>
+<div class="grid">
+<div class="card testimonial">"Amazing learning experience!"<br>– Aditi</div>
+<div class="card testimonial">"Best decision for my career."<br>– Rohan</div>
+<div class="card testimonial">"Got placed after this!"<br>– Karan</div>
+</div>
+</section>
+
+<section id="pricing">
+<h2>Pricing</h2>
+<div class="price">₹8,999</div>
+<button class="btn btn-primary">Enroll Today</button>
+</section>
+
+<section id="faq">
+<h2>FAQ</h2>
+
+<div class="faq-item">
+<div class="faq-question">Beginner friendly?</div>
+<div class="faq-answer">Yes, no prior experience required.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Certificate provided?</div>
+<div class="faq-answer">Yes, after completion.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Live sessions?</div>
+<div class="faq-answer">All classes are live.</div>
+</div>
+
+</section>
+
+<footer>
+<h3>DevLaunch Academy</h3>
+<p>Email: contact@devlaunch.com</p>
+<p>© 2026 DevLaunch | Learn • Build • Launch 🚀</p>
+
+<div class="social">
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-linkedin"></i>
+</div>
+</footer>
+
+<script>
+
+/* Navbar scroll */
+
+window.addEventListener("scroll",()=>{
+let nav=document.getElementById("navbar");
+nav.classList.toggle("scrolled",window.scrollY>50);
+});
+
+/* FAQ Animation */
+
+document.querySelectorAll(".faq-question").forEach(q=>{
+q.addEventListener("click",()=>{
+let ans=q.nextElementSibling;
+ans.style.maxHeight = ans.style.maxHeight ? null : ans.scrollHeight+"px";
+});
+});
+
+</script>
+
+</body>
+</html>
