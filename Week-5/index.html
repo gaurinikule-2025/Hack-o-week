@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roaming Diaries</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#f4f9f4;
+    color:#333;
+    line-height:1.7;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    width:100%;
+    background:white;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.08);
+    z-index:1000;
+}
+
+nav h2{
+    font-family:'Playfair Display', serif;
+    color:#3a7d44;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#3a7d44;
+}
+
+/* SECTIONS */
+section{
+    padding:120px 10%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:url('https://wallpaperaccess.com/full/185289.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:50px;
+    max-width:800px;
+}
+
+.hero p{
+    margin-top:18px;
+    font-size:20px;
+    font-weight:300;
+}
+
+/* ABOUT */
+.about{
+    text-align:center;
+}
+
+.about h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:20px;
+}
+
+.about p{
+    max-width:750px;
+    margin:auto;
+    color:#555;
+}
+
+/* BLOG */
+.blog{
+    margin-top:40px;
+}
+
+.blog h2{
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    margin-bottom:50px;
+}
+
+.post{
+    margin-bottom:70px;
+    padding-bottom:20px;
+    border-bottom:1px solid #ddd;
+}
+
+.post img{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:20px;
+    transition:0.4s;
+}
+
+.post img:hover{
+    transform:scale(1.04);
+}
+
+.post h3{
+    font-family:'Playfair Display', serif;
+    font-size:26px;
+    margin-bottom:8px;
+    color:#3a7d44;
+}
+
+.meta{
+    font-size:13px;
+    color:#888;
+    margin-bottom:15px;
+}
+
+.post p{
+    margin-bottom:15px;
+    color:#444;
+}
+
+/* GALLERY */
+.gallery h2{
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    margin-bottom:40px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.05);
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+.contact h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:25px;
+}
+
+.contact form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact input, .contact textarea{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.contact button{
+    padding:12px;
+    border:none;
+    background:#3a7d44;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact button:hover{
+    background:#2e5f33;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:#3a7d44;
+    color:white;
+    margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Roaming Diaries</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div>
+        <h1>Collecting Moments From Every Corner of the World</h1>
+        <p>Journeys, reflections, and stories that stay forever.</p>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+        Traveling for me is not just about destinations but about experiences that shape who I am. Every place teaches something new, and every journey leaves behind a story worth sharing.
+    </p>
+</section>
+
+<section class="blog" id="stories">
+    <h2>Travel Stories</h2>
+
+    <div class="post">
+        <img src="https://www.travellingking.com/wp-content/uploads/2017/11/tobias-winkelmann-367873.jpg">
+        <h3>Bali, Indonesia — Peace in Simplicity</h3>
+        <div class="meta">June 2025 • Solo Trip</div>
+        <p>Bali offered a calm escape where every moment felt slow and meaningful.</p>
+    </div>
+
+    <div class="post">
+        <img src="https://pariswebservices.com/wp-content/uploads/2018/01/AdobeStock_170589233-1030x680.jpeg">
+        <h3>Paris, France — Beauty in Every Street</h3>
+        <div class="meta">September 2025 • Cultural Escape</div>
+        <p>Paris felt like art — quiet, elegant, and full of life in small details.</p>
+    </div>
+
+    <div class="post">
+        <img src="https://lp-cms-production.imgix.net/2019-06/GettyImages-149353949_high.jpg">
+        <h3>Himachal, India — Finding Stillness</h3>
+        <div class="meta">December 2025 • Winter Retreat</div>
+        <p>The mountains brought clarity, calm, and a sense of deep peace.</p>
+    </div>
+
+</section>
+
+<section class="gallery" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a">
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Roaming Diaries | Explore. Feel. Repeat.
+</footer>
+
+</body>
+</html>
