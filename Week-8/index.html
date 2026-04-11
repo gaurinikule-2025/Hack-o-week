@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LensCraft Gallery</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* BACKGROUND */
+body{
+min-height:100vh;
+background:linear-gradient(-45deg,#1d2671,#c33764,#00c6ff,#0072ff);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+color:white;
+transition:0.5s;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:40px 20px;
+}
+
+header h1{
+font-size:40px;
+font-weight:700;
+}
+
+header p{
+margin-top:10px;
+opacity:0.9;
+}
+
+#themeToggle{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:white;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+#themeToggle:hover{
+transform:scale(1.1);
+}
+
+/* ABOUT */
+.about{
+text-align:center;
+max-width:700px;
+margin:auto;
+padding:30px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+border-radius:15px;
+margin-bottom:30px;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:40px;
+}
+
+.card{
+position:relative;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+transition:0.4s;
+}
+
+.card:hover img{
+transform:scale(1.15);
+}
+
+/* OVERLAY */
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:12px;
+background:rgba(0,0,0,0.6);
+text-align:center;
+font-weight:bold;
+opacity:0;
+transition:0.4s;
+}
+
+.card:hover .overlay{
+opacity:1;
+}
+
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.lightbox img{
+max-width:80%;
+max-height:80%;
+border-radius:10px;
+}
+
+.close{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+cursor:pointer;
+}
+
+.prev,.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:50px;
+cursor:pointer;
+}
+
+.prev{left:40px;}
+.next{right:40px;}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.4);
+}
+
+/* DARK MODE */
+.dark{
+background:#111;
+animation:none;
+}
+
+.dark .about,
+.dark .card{
+background:rgba(0,0,0,0.6);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📸 LensCraft Gallery</h1>
+<p>Moments captured through a creative lens</p>
+<button id="themeToggle">🌙 Toggle Theme</button>
+</header>
+
+<section class="about">
+<h2>About</h2>
+<p>Photography is about freezing moments in time. Each image here tells a unique story of nature, travel, and life.</p>
+</section>
+
+<section class="gallery">
+
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/500px-Altja_j%C3%B5gi_Lahemaal.jpg"><div class="overlay">Nature</div></div>
+
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg/500px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg"><div class="overlay">Mountains</div></div>
+
+<div class="card"><img src="https://biodt.eu/sites/default/files/2024-09/Forest%20Biodiversity%20Dynamics.jpg"><div class="overlay">Forest</div></div>
+
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcos8--FRzsBIwYidtv5oS6TeFs098G-YAKg&s"><div class="overlay">Beach</div></div>
+
+<div class="card"><img src="https://i0.wp.com/blog.education.nationalgeographic.org/wp-content/uploads/2013/10/29598.jpg"><div class="overlay">Sunset</div></div>
+
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShw6cbfNYE1t9-lJAbxqk4trgFBWaqF1fuzw&s"><div class="overlay">Wildlife</div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df"><div class="overlay">City</div></div>
+
+<div class="card"><img src="https://media.istockphoto.com/id/904172104/photo/weve-made-it-all-this-way-i-am-proud.jpg"><div class="overlay">Travel</div></div>
+
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTryUApX-Rb-HtcAY-T6N1RNtvRF86luRGHxg&s"><div class="overlay">River</div></div>
+
+</section>
+
+<div class="lightbox" id="lightbox">
+<span class="close">&times;</span>
+<img id="lightbox-img">
+<div class="prev">&#10094;</div>
+<div class="next">&#10095;</div>
+</div>
+
+<footer>
+<p>© 2026 LensCraft Gallery | Capture the Moment</p>
+</footer>
+
+<script>
+
+const cards=document.querySelectorAll(".card img")
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
+
+const next=document.querySelector(".next")
+const prev=document.querySelector(".prev")
+const close=document.querySelector(".close")
+
+let index=0
+
+cards.forEach((img,i)=>{
+img.addEventListener("click",()=>{
+lightbox.style.display="flex"
+lightboxImg.src=img.src
+index=i
+})
+})
+
+close.onclick=()=>lightbox.style.display="none"
+
+next.onclick=()=>{
+index=(index+1)%cards.length
+lightboxImg.src=cards[index].src
+}
+
+prev.onclick=()=>{
+index=(index-1+cards.length)%cards.length
+lightboxImg.src=cards[index].src
+}
+
+document.addEventListener("keydown",(e)=>{
+if(e.key==="ArrowRight") next.onclick()
+if(e.key==="ArrowLeft") prev.onclick()
+if(e.key==="Escape") lightbox.style.display="none"
+})
+
+lightbox.addEventListener("click",(e)=>{
+if(e.target!==lightboxImg){
+lightbox.style.display="none"
+}
+})
+
+document.getElementById("themeToggle").onclick=()=>{
+document.body.classList.toggle("dark")
+}
+
+</script>
+
+</body>
+</html>
